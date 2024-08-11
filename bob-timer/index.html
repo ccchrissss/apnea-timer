@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HTML 5 Boilerplate</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1>Timer</h1>
+    <div>
+        <span id="timer">0:00</span>
+        <button id="startButton" onclick="onStartTimer()">Start</button>
+    </div>
+    <div style="margin-top: 1rem">
+        <input style="width: 3rem" id="minutes" type="number" min="0">
+        <input style="width: 3rem"  id="seconds" type="number" min="0" max="59">
+        <button id="setButton" onclick="onSetTime()">Set</button>
+    </div>
+    
+	<script src="main.js"></script>
+  </body>
+</html>

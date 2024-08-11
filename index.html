@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apnea Timer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Apnea Timer</h1>
+
+    <p id="countdown">0:00</p>
+
+    <button id="startTimer">Start Timer</button>
+
+    <section>
+        <input id="minutesInput" type="text" placeholder="Minutes">
+        <button onclick="setMinutes()">Set</button>
+        <input id="secondsInput" type="text" placeholder="Seconds">
+        <button onclick="setSeconds()">Set</button>
+    </section>
+
+    <!-- <button onclick="play()">Play Audio</button> -->
+
+    <script src="main.js"></script>
+</body>
+</html>
