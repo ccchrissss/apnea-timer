@@ -4,7 +4,9 @@ let minutes = 0;
 let seconds = 0;
 // let time = (startingMinutes * 60) + startingSeconds;
 let startTimeButton = document.getElementById('startTimer');
+let stopTimeButton = document.getElementById('stopTimer')
 let countdownEl = document.getElementById('countdown');
+
 
 setTime = () => {
     time = (minutes * 60) + seconds
@@ -17,17 +19,13 @@ let audio = new Audio("https://www.soundjay.com/buttons/sounds/beep-03.mp3");
 
 function setMinutes() {
     minutes = document.getElementById("minutesInput").value;
-    // i had the above as the below. It did not work becaus when using 'let' again, it was creating a new variable 
-    // 'minutes' within the function. omitting 'let' as seen below reassigns the variable to the value on th rhs
-    // let minutes = document.getElementById("minutesInput").value;
+
     setTime();
 };
 
 function setSeconds() {
     seconds = document.getElementById("secondsInput").value;
-    // i had the above as the below. It did not work becaus when using 'let' again, it was creating a new variable 
-    // 'seconds' within the function. omitting 'let' as seen below reassigns the variable to the value on the rhs
-    // let seconds = document.getElementById("secondsInput").value;
+
     setTime();
 };
 

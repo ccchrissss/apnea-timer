@@ -6,7 +6,7 @@ body {
 }
 
 p {
-    background-color: white;
+    background-color: gray;
     display: inline-flex;
     width: 200px;
     height: 70px;
@@ -15,3 +15,23 @@ p {
     justify-content: center;
     margin: 0;
 }
+
+#clock-display {
+    display: flex;
+}
+
+#clock-display > * {
+    margin: 1rem;
+}
+
+#clock-display > .timer-btns {
+    margin: 2rem;
+}
+
+.timer-btns {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    row-gap: 10px;
+}
+
