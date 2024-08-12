@@ -10,7 +10,7 @@ let countdownEl = document.getElementById('countdown');
 
 setTime = () => {
     time = (minutes * 60) + seconds
-    countdownEl.innerHTML = `${minutes} : ${seconds.length > 1 ? seconds : `0${seconds}`}`;
+    countdownEl.innerHTML = `${minutes}:${seconds.length > 1 ? seconds : `0${seconds}`}`;
 };
 
 let audio = new Audio("https://www.soundjay.com/buttons/sounds/beep-03.mp3");
@@ -29,10 +29,6 @@ function setSeconds() {
     setTime();
 };
 
-// returnMinutes();
-// returnSeconds();
-// console.log(startingMinutes, startingSeconds, 'after');
-
 
 // test if the audio file works
 // audio.play();
@@ -42,49 +38,39 @@ let timerID;
 const count = () => {
     // console.log('count function')
     timerID = setInterval(updateCountdown, 1000)
-    console.log('!!!timerid', timerID)
+    console.log('timerID', timerID)
 };
 
 const stopCount = () => {
     clearInterval(timerID);
     // release our intervalID from the variable
     timerID = null;
-  }
+}
+
+const resetCount = () => {
+    stopCount
+
+
+}
 
 startTimeButton.addEventListener('click', count);
 
-stopTimeButton.addEventListener('click', stopCount )
+stopTimeButton.addEventListener('click', stopCount)
 
 function updateCountdown() {
-    // // 
-    // let startingMinutes = 0;
-    // let startingSeconds = 0;
-    // let time = (startingMinutes * 60) + startingSeconds;
-    // // 
 
     console.log('counting')
 
     const minutes = Math.floor(time / 60);
     let seconds = time % 60;
 
-    // // 
-    // function returnMinutes(){
-    //     let startingMinutes = document.getElementById("minutesInput").value;
-    //     return startingMinutes;
-    // }
-    
-    // function returnSeconds(){
-    //     let startingSeconds = document.getElementById("secondsInput").value;
-    //     return startingSeconds;
-    // }
-    // //
-
     // add a zero to seconds when it is less than 10
     if (seconds < 10) {
         seconds = `0${seconds}`
     };
+    console.log(`${minutes}:${seconds}`)
 
-    countdownEl.innerHTML = `${minutes} : ${seconds}`;
+    countdownEl.innerHTML = `${minutes}:${seconds}`;
     if (time > 0) {
         time--
         // console.log(time);
@@ -93,16 +79,7 @@ function updateCountdown() {
         clearInterval(timerID)
     };
 
-    // if (time < 1) {
-    //     audio.play()
-    // };
-
-    // {for (i = 1; i > 0; i--) {
-    //     audio.play();
-    //    console.log(i, 'this is i');
-    // };}
-
-    console.log(seconds);
+    // console.log(seconds);
     
     if (minutes === 0 && seconds === 15) {
         audio.play();
