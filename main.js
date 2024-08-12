@@ -40,12 +40,20 @@ function setSeconds() {
 let timerID;
 
 const count = () => {
-    console.log('afafasd')
+    // console.log('count function')
     timerID = setInterval(updateCountdown, 1000)
     console.log('!!!timerid', timerID)
 };
 
-startTimeButton.addEventListener("click", count);
+const stopCount = () => {
+    clearInterval(timerID);
+    // release our intervalID from the variable
+    timerID = null;
+  }
+
+startTimeButton.addEventListener('click', count);
+
+stopTimeButton.addEventListener('click', stopCount )
 
 function updateCountdown() {
     // // 
