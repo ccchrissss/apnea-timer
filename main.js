@@ -3,8 +3,9 @@
 let minutes = 0;
 let seconds = 0;
 // let time = (startingMinutes * 60) + startingSeconds;
-let startTimeButton = document.getElementById('startTimer');
-let stopTimeButton = document.getElementById('stopTimer')
+let startTimerButton = document.getElementById('startTimer');
+let stopTimerButton = document.getElementById('stopTimer')
+const clearTimerButton = document.getElementById('clearTimer')
 let countdownEl = document.getElementById('countdown');
 
 
@@ -33,29 +34,29 @@ function setSeconds() {
 // test if the audio file works
 // audio.play();
 
-let timerID;
+let timerId;
 
 const count = () => {
     // console.log('count function')
-    timerID = setInterval(updateCountdown, 1000)
-    console.log('timerID', timerID)
+    timerId = setInterval(updateCountdown, 1000)
+    console.log('timerId', timerId)
 };
 
 const stopCount = () => {
-    clearInterval(timerID);
+    clearInterval(timerId);
     // release our intervalID from the variable
-    timerID = null;
+    timerId = null;
 }
 
-const resetCount = () => {
+const clearTimer = () => {
     stopCount
 
-
+    countdownEl.innerHTML = '0:00'
 }
 
-startTimeButton.addEventListener('click', count);
-
-stopTimeButton.addEventListener('click', stopCount)
+startTimerButton.addEventListener('click', count);
+stopTimerButton.addEventListener('click', stopCount)
+clearTimerButton.addEventListener('click', clearTimer)
 
 function updateCountdown() {
 
@@ -75,8 +76,8 @@ function updateCountdown() {
         time--
         // console.log(time);
     } else {
-        console.log('clearing interval', timerID)
-        clearInterval(timerID)
+        console.log('clearing interval', timerId)
+        clearInterval(timerId)
     };
 
     // console.log(seconds);
