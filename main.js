@@ -59,7 +59,11 @@ const stopCount = () => {
 const clearTimer = () => {
     stopCount
 
-    countdownEl.innerHTML = '0:00'
+    // countdownEl.innerHTML = '0:00'
+    minutes = 0
+    seconds = 0
+
+    setTime()
 }
 
 const resetTimer = () => {
