@@ -2,14 +2,16 @@
 // let startingSeconds = 0;
 let minutes = 0;
 let seconds = 0;
-// let time = (startingMinutes * 60) + startingSeconds;
-const startTimerButton = document.getElementById('startTimer');
-const stopTimerButton = document.getElementById('stopTimer')
-const clearTimerButton = document.getElementById('clearTimer')
-const resetTimerButton = document.getElementById('resetTimer')
+
+const setMinutesBtn = document.getElementById('set-minutes')
+const setSecondsBtn = document.getElementById('set-seconds')
+const startTimerBtn = document.getElementById('start-timer');
+const stopTimerBtn = document.getElementById('stop-timer')
+const clearTimerBtn = document.getElementById('clear-timer')
+const resetTimerBtn = document.getElementById('reset-timer')
 
 const countdownEl = document.getElementById('countdown');
-const audio = new Audio("https://www.soundjay.com/buttons/sounds/beep-03.mp3");
+const audio = new Audio("https://www.soundjay.com/Btns/sounds/beep-03.mp3");
 let time = 0
 
 
@@ -23,7 +25,7 @@ setTime = () => {
 // console.log(startingMinutes, startingSeconds, 'before');
 
 const setMinutes = () => {
-    minutes = document.getElementById('minutesInput').value;
+    minutes = document.getElementById('minutes-input').value;
 
     if (!minutes) minutes = 0
 
@@ -31,12 +33,15 @@ const setMinutes = () => {
 };
 
 const setSeconds = () => {
-    seconds = document.getElementById('secondsInput').value;
+    seconds = document.getElementById('seconds-input').value;
 
     if (!seconds) seconds = 0
 
     setTime();
 };
+
+setMinutesBtn.addEventListener('click', setMinutes)
+setSecondsBtn.addEventListener('click', setSeconds)
 
 
 // test if the audio file works
@@ -77,10 +82,10 @@ const resetTimer = () => {
     setSeconds()
 }
 
-startTimerButton.addEventListener('click', count);
-stopTimerButton.addEventListener('click', stopCount)
-clearTimerButton.addEventListener('click', clearTimer)
-resetTimerButton.addEventListener('click', resetTimer)
+startTimerBtn.addEventListener('click', count);
+stopTimerBtn.addEventListener('click', stopCount)
+clearTimerBtn.addEventListener('click', clearTimer)
+resetTimerBtn.addEventListener('click', resetTimer)
 
 function updateCountdown() {
 
