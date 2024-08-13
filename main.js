@@ -10,7 +10,7 @@ const resetTimerButton = document.getElementById('resetTimer')
 
 const countdownEl = document.getElementById('countdown');
 const audio = new Audio("https://www.soundjay.com/buttons/sounds/beep-03.mp3");
-let time
+let time = 0
 
 
 setTime = () => {
