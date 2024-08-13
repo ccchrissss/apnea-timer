@@ -9,27 +9,37 @@
 </head>
 <body>
 
-    <h1>Apnea Timer</h1>
+    <section id="whole-thing">
+        <h1>Apnea Timer</h1>
 
-    <section id="clock-display">
-        <p id="countdown">0:00</p>
+        <section id="clock-display">
+            <p id="countdown">0:00</p>
 
-        <div class="timer-btns">
-            <button id="startTimer">Start Timer</button>
-            <!-- <br /> -->
-            <button id="stopTimer">Stop Timer</button>
-            <button id="clearTimer">Clear Timer</button>
-            <button id="resetTimer">Reset To Last Time</button>
-        </div>
+            <div class="timer-btns">
+                <button id="startTimer">Start Timer</button>
+                <!-- <br /> -->
+                <button id="stopTimer">Stop Timer</button> 
+                <button id="clearTimer">Clear Timer</button>
+                <button id="resetTimer">Reset To Last Time</button>
+            </div>
+        </section>
+
+        <section id="inputs-and-preset-btns">
+            <div class="inputs">
+                <input id="minutesInput" type="text" placeholder="Minutes">
+                <button onclick="setMinutes()">Set</button>
+                <input id="secondsInput" type="text" placeholder="Seconds">
+                <button onclick="setSeconds()">Set</button>
+            </div>
+            <div class="preset-btns-big-box">
+                <div class="preset-btns-sml-box">
+                    <button id="set10min10sec">10 min 10 sec</button>
+                    <button id="set1min">1 min</button>
+                    <button id="set20sec">20 sec</button>
+                </div>
+            </div>
+        </section>
     </section>
-
-    <section>
-        <input id="minutesInput" type="text" placeholder="Minutes">
-        <button onclick="setMinutes()">Set</button>
-        <input id="secondsInput" type="text" placeholder="Seconds">
-        <button onclick="setSeconds()">Set</button>
-    </section>
-
     <!-- <button onclick="play()">Play Audio</button> -->
 
     <script src="main.js"></script>

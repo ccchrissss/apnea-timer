@@ -5,6 +5,10 @@ body {
     margin: 0;
 }
 
+#whole-thing {
+    width: 50%;
+}
+
 p {
     background-color: gray;
     display: inline-flex;
@@ -33,5 +37,27 @@ p {
     flex-direction: column;
     flex-wrap: wrap;
     row-gap: 10px;
+}
+
+#inputs-and-preset-btns {
+    margin: 1rem;
+    display: flex;
+}
+
+.inputs {
+    display: flex;
+    flex-basis: 50%;
+    flex-wrap: wrap;
+    row-gap: 10px;
+    column-gap: 5px;
+}
+
+.preset-btns-big-box {
+    display: flex;
+}
+
+.preset-btns-sml-box {
+    display: flex;
+    column-gap: 5px;
 }
 
