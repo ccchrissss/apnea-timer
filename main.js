@@ -3,10 +3,13 @@
 let minutes = 0;
 let seconds = 0;
 // let time = (startingMinutes * 60) + startingSeconds;
-let startTimerButton = document.getElementById('startTimer');
-let stopTimerButton = document.getElementById('stopTimer')
+const startTimerButton = document.getElementById('startTimer');
+const stopTimerButton = document.getElementById('stopTimer')
 const clearTimerButton = document.getElementById('clearTimer')
-let countdownEl = document.getElementById('countdown');
+const resetTimerButton = document.getElementById('resetTimer')
+
+const countdownEl = document.getElementById('countdown');
+
 
 
 setTime = () => {
@@ -18,14 +21,18 @@ let audio = new Audio("https://www.soundjay.com/buttons/sounds/beep-03.mp3");
 
 // console.log(startingMinutes, startingSeconds, 'before');
 
-function setMinutes() {
-    minutes = document.getElementById("minutesInput").value;
+const setMinutes = () => {
+    minutes = document.getElementById('minutesInput').value;
+
+    if (!minutes) minutes = 0
 
     setTime();
 };
 
-function setSeconds() {
-    seconds = document.getElementById("secondsInput").value;
+const setSeconds = () => {
+    seconds = document.getElementById('secondsInput').value;
+
+    if (!seconds) seconds = 0
 
     setTime();
 };
@@ -54,9 +61,21 @@ const clearTimer = () => {
     countdownEl.innerHTML = '0:00'
 }
 
+const resetTimer = () => {
+    // let seconds = document.getElementById('secondsInput').value
+    // let minutes = document.getElementById('minutesInput').value
+
+    // if (!seconds) seconds = 0
+    // if (!minutes) minutes = 0
+
+    setMinutes()
+    setSeconds()
+}
+
 startTimerButton.addEventListener('click', count);
 stopTimerButton.addEventListener('click', stopCount)
 clearTimerButton.addEventListener('click', clearTimer)
+resetTimerButton.addEventListener('click', resetTimer)
 
 function updateCountdown() {
 
