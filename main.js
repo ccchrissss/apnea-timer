@@ -9,15 +9,16 @@ const clearTimerButton = document.getElementById('clearTimer')
 const resetTimerButton = document.getElementById('resetTimer')
 
 const countdownEl = document.getElementById('countdown');
-
+const audio = new Audio("https://www.soundjay.com/buttons/sounds/beep-03.mp3");
+let time
 
 
 setTime = () => {
-    time = (minutes * 60) + seconds
+    time = (minutes * 60) + +seconds
+    console.log('time: ', time)
     countdownEl.innerHTML = `${minutes}:${seconds.length > 1 ? seconds : `0${seconds}`}`;
 };
 
-let audio = new Audio("https://www.soundjay.com/buttons/sounds/beep-03.mp3");
 
 // console.log(startingMinutes, startingSeconds, 'before');
 
@@ -79,16 +80,17 @@ resetTimerButton.addEventListener('click', resetTimer)
 
 function updateCountdown() {
 
-    console.log('counting')
-
-    const minutes = Math.floor(time / 60);
+    // console.log('counting')
+    // console.log('time: ', time)
+    let minutes = Math.floor(time / 60);
     let seconds = time % 60;
+    console.log(`minutes: ${minutes}  |  seconds: ${seconds}`)
 
     // add a zero to seconds when it is less than 10
     if (seconds < 10) {
         seconds = `0${seconds}`
     };
-    console.log(`${minutes}:${seconds}`)
+    // console.log(`${minutes}:${seconds}`)
 
     countdownEl.innerHTML = `${minutes}:${seconds}`;
     if (time > 0) {
