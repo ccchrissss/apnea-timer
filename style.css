@@ -5,6 +5,10 @@ body {
     margin: 0;
 }
 
+#autoplay-warning {
+    font-size: 1rem;
+}
+
 #whole-thing {
     width: 50%;
 }
