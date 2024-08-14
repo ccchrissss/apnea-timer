@@ -16,7 +16,7 @@ const set20SecBtn = document.getElementById('set-20-sec')
 
 
 const countdownEl = document.getElementById('countdown');
-const audio = new Audio("https://www.soundjay.com/Btns/sounds/beep-03.mp3");
+const audio = new Audio('./beep-07a.mp3');
 let time = 0
 
 
