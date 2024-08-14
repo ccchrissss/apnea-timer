@@ -5,10 +5,15 @@ let seconds = 0;
 
 const setMinutesBtn = document.getElementById('set-minutes')
 const setSecondsBtn = document.getElementById('set-seconds')
+
 const startTimerBtn = document.getElementById('start-timer');
 const stopTimerBtn = document.getElementById('stop-timer')
 const clearTimerBtn = document.getElementById('clear-timer')
 const resetTimerBtn = document.getElementById('reset-timer')
+const set10Min10SecBtn = document.getElementById('set-10-min-10-sec')
+const set1MinBtn = document.getElementById('set-1-min')
+const set20SecBtn = document.getElementById('set-20-sec')
+
 
 const countdownEl = document.getElementById('countdown');
 const audio = new Audio("https://www.soundjay.com/Btns/sounds/beep-03.mp3");
@@ -18,7 +23,9 @@ let time = 0
 setTime = () => {
     time = (minutes * 60) + +seconds
     console.log('time: ', time)
-    countdownEl.innerHTML = `${minutes}:${seconds.length > 1 ? seconds : `0${seconds}`}`;
+
+    // seconds must be converted to a string to read its length property.
+    countdownEl.innerHTML = `${minutes}:${seconds.toString().length > 1 ? seconds : `0${seconds}`}`;
 };
 
 
@@ -42,6 +49,32 @@ const setSeconds = () => {
 
 setMinutesBtn.addEventListener('click', setMinutes)
 setSecondsBtn.addEventListener('click', setSeconds)
+
+
+const set10Min10Sec = () => {
+    minutes = 10
+    seconds = 10
+
+    setTime()
+}
+
+const set1Min = () => {
+    minutes = 1
+    seconds = 0
+
+    setTime()
+}
+
+const set20Sec = () => {
+    minutes = 0
+    seconds = 20
+
+    setTime()
+}
+
+set10Min10SecBtn.addEventListener('click', set10Min10Sec)
+set1MinBtn.addEventListener('click', set1Min)
+set20SecBtn.addEventListener('click', set20Sec)
 
 
 // test if the audio file works
@@ -86,6 +119,8 @@ startTimerBtn.addEventListener('click', count);
 stopTimerBtn.addEventListener('click', stopCount)
 clearTimerBtn.addEventListener('click', clearTimer)
 resetTimerBtn.addEventListener('click', resetTimer)
+
+
 
 function updateCountdown() {
 
