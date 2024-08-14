@@ -52,24 +52,36 @@ setSecondsBtn.addEventListener('click', setSeconds)
 
 
 const set10Min10Sec = () => {
-    minutes = 10
-    seconds = 10
+    // minutes = 10
+    // seconds = 10
 
-    setTime()
+    document.getElementById('minutes-input').value = 10
+    document.getElementById('seconds-input').value = 10
+
+    setMinutes()
+    setSeconds()
 }
 
 const set1Min = () => {
-    minutes = 1
-    seconds = 0
+    // minutes = 1
+    // seconds = 0
 
-    setTime()
+    document.getElementById('minutes-input').value = 1
+    document.getElementById('seconds-input').value = 0
+
+    setMinutes()
+    setSeconds()
 }
 
 const set20Sec = () => {
-    minutes = 0
-    seconds = 20
+    // minutes = 0
+    // seconds = 20
 
-    setTime()
+    document.getElementById('minutes-input').value = 0
+    document.getElementById('seconds-input').value = 20
+
+    setMinutes()
+    setSeconds()
 }
 
 set10Min10SecBtn.addEventListener('click', set10Min10Sec)
