@@ -165,8 +165,11 @@ function updateCountdown() {
     // had to change teh boolean below to seconds === `0${1}` instead of seconds === 1 bc
     // of the 'if < 10 add a zero to seconds' statement
     } else if (minutes === 0 && seconds === `0${1}`) {
-        audio.play();
-        console.log('audio le play 1');
+        setTimeout( () => {
+            audio.play();
+            console.log('audio le play 1');
+        }, 1000)
+
     } else {
         audio.pause();
         // console.log('audio le pause monsieur');
