@@ -2,6 +2,7 @@
 // let startingSeconds = 0;
 let minutes = 0;
 let seconds = 0;
+let time = 0
 
 const setMinutesBtn = document.getElementById('set-minutes')
 const setSecondsBtn = document.getElementById('set-seconds')
@@ -17,7 +18,6 @@ const set20SecBtn = document.getElementById('set-20-sec')
 
 const countdownEl = document.getElementById('countdown');
 const audio = new Audio('./beep-07a.mp3');
-let time = 0
 
 
 setTime = () => {
@@ -94,8 +94,8 @@ set20SecBtn.addEventListener('click', set20Sec)
 
 let timerId;
 
-const count = () => {
-    // console.log('count function')
+const startCount = () => {
+    console.log('startTimerBtn clicked, startCount function executed')
     timerId = setInterval(updateCountdown, 1000)
     console.log('timerId', timerId)
 };
@@ -127,7 +127,7 @@ const resetTimer = () => {
     setSeconds()
 }
 
-startTimerBtn.addEventListener('click', count);
+startTimerBtn.addEventListener('click', startCount);
 stopTimerBtn.addEventListener('click', stopCount)
 clearTimerBtn.addEventListener('click', clearTimer)
 resetTimerBtn.addEventListener('click', resetTimer)
@@ -136,11 +136,21 @@ resetTimerBtn.addEventListener('click', resetTimer)
 
 function updateCountdown() {
 
+    console.log('updateCountdown')
+
+    if (time > 0) {
+        time--
+        // console.log(time);
+    } else {
+        console.log('timer has ended. clearing interval', timerId)
+        clearInterval(timerId)
+    };
+
     // console.log('counting')
     // console.log('time: ', time)
     let minutes = Math.floor(time / 60);
     let seconds = time % 60;
-    console.log(`minutes: ${minutes}  |  seconds: ${seconds}`)
+    // console.log(`minutes: ${minutes}  |  seconds: ${seconds}`)
 
     // add a zero to seconds when it is less than 10
     if (seconds < 10) {
@@ -148,14 +158,10 @@ function updateCountdown() {
     };
     // console.log(`${minutes}:${seconds}`)
 
-    countdownEl.innerHTML = `${minutes}:${seconds}`;
-    if (time > 0) {
-        time--
-        // console.log(time);
-    } else {
-        console.log('clearing interval', timerId)
-        clearInterval(timerId)
-    };
+    // countdownEl.innerHTML = `${minutes}:${seconds}`;
+
+    countdownEl.innerHTML = `${minutes}:${seconds}`
+    console.log(countdownEl.innerHTML)
 
     // console.log(seconds);
     
@@ -167,6 +173,7 @@ function updateCountdown() {
     } else if (minutes === 0 && seconds === `0${1}`) {
         setTimeout( () => {
             audio.play();
+            
             console.log('audio le play 1');
         }, 1000)
 
