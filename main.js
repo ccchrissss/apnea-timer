@@ -17,7 +17,8 @@ const set20SecBtn = document.getElementById('set-20-sec')
 
 
 const countdownEl = document.getElementById('countdown');
-const audio = new Audio('./beep-07a.mp3');
+const singleBeep = new Audio('./beep-07a.mp3');
+const tripleBeep = new Audio('./triple-beep-07a.mp3')
 
 
 setTime = () => {
@@ -166,19 +167,20 @@ function updateCountdown() {
     // console.log(seconds);
     
     if (minutes === 0 && seconds === 15) {
-        audio.play();
-        console.log('audio le play 15');
+        singleBeep.play();
+        console.log('singleBeep le play 15');
     // had to change teh boolean below to seconds === `0${1}` instead of seconds === 1 bc
     // of the 'if < 10 add a zero to seconds' statement
     } else if (minutes === 0 && seconds === `0${1}`) {
         setTimeout( () => {
-            audio.play();
-            
-            console.log('audio le play 1');
+            tripleBeep.play();
+
+            console.log('tripleBeep le play 1');
         }, 1000)
 
     } else {
-        audio.pause();
+        singleBeep.pause();
+        tripleBeep.pause()
         // console.log('audio le pause monsieur');
     };
 }
