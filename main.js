@@ -70,6 +70,7 @@ const set10Min10Sec = () => {
     document.getElementById('minutes-input').value = 10
     document.getElementById('seconds-input').value = 10
 
+    stopTimer()
     setMinAndSec()
 }
 
@@ -80,6 +81,7 @@ const set1Min = () => {
     document.getElementById('minutes-input').value = 1
     document.getElementById('seconds-input').value = 0
 
+    stopTimer()
     setMinAndSec()
 }
 
@@ -90,6 +92,7 @@ const set20Sec = () => {
     document.getElementById('minutes-input').value = 0
     document.getElementById('seconds-input').value = 20
 
+    stopTimer()
     setMinAndSec()
 }
 
@@ -150,6 +153,7 @@ const resetTimer = () => {
     // if (!seconds) seconds = 0
     // if (!minutes) minutes = 0
 
+    stopTimer()
     setMinutes()
     setSeconds()
 }
@@ -203,18 +207,21 @@ function updateCountdown() {
         console.log('singleBeep le play 15');
     // had to change teh boolean below to seconds === `0${1}` instead of seconds === 1 bc
     // of the 'if < 10 add a zero to seconds' statement
-    } else if (minutes === 0 && seconds === `0${1}`) {
+    }
+    
+    if (minutes === 0 && seconds === `0${1}`) {
         setTimeout( () => {
             tripleBeep.play();
 
             console.log('tripleBeep le play 1');
         }, 1000)
-
-    } else {
-        singleBeep.pause();
-        tripleBeep.pause()
-        // console.log('audio le pause monsieur');
-    }; 
+    } 
+    
+    // else {
+    //     singleBeep.pause();
+    //     tripleBeep.pause()
+    //     // console.log('audio le pause monsieur');
+    // }; 
 }
 
 
