@@ -102,28 +102,45 @@ set20SecBtn.addEventListener('click', set20Sec)
 // audio.play();
 
 let timerId;
+let timerStatus = 'off'
 
 const startTimer = () => {
-    console.log('startTimerBtn clicked, startTimer function executed')
-    timerId = setInterval(updateCountdown, 1000)
-    console.log('timerId', timerId)
+    if (timerStatus === 'on') {
+        timerStatus = 'on'
+    } else if (timerStatus === 'off') {
+        // stopTimer()
+
+        console.log('startTimerBtn clicked, startTimer function executed')
+        timerId = setInterval(updateCountdown, 1000)
+        console.log('timerId', timerId)
+
+        timerStatus = 'on'
+
+    }
+
+    console.log(timerStatus)
 
 };
 
 const stopTimer = () => {
+    timerStatus = 'off'
     clearInterval(timerId);
     // release our intervalID from the variable
     timerId = null;
+
+    console.log(timerStatus)
 }
 
 const clearTimer = () => {
-    stopTimer
+    stopTimer()
 
     // countdownEl.innerHTML = '0:00'
     minutes = 0
     seconds = 0
 
     setTime()
+
+    console.log(timerStatus)
 }
 
 const resetTimer = () => {
@@ -156,6 +173,8 @@ function updateCountdown() {
         if (timerId) {
             console.log('timer has ended. clearing interval', timerId)
             clearInterval(timerId)
+
+            clearTimer()
         }
 
     };
@@ -195,7 +214,7 @@ function updateCountdown() {
         singleBeep.pause();
         tripleBeep.pause()
         // console.log('audio le pause monsieur');
-    };
+    }; 
 }
 
 
