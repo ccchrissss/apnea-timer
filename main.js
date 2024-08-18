@@ -48,6 +48,17 @@ const setSeconds = () => {
     setTime();
 };
 
+const setMinAndSec = () => {
+    
+    minutes = document.getElementById('minutes-input').value;
+    seconds = document.getElementById('seconds-input').value;
+
+    if (!minutes) minutes = 0
+    if (!seconds) seconds = 0
+
+    setTime()
+}
+
 setMinutesBtn.addEventListener('click', setMinutes)
 setSecondsBtn.addEventListener('click', setSeconds)
 
@@ -59,8 +70,7 @@ const set10Min10Sec = () => {
     document.getElementById('minutes-input').value = 10
     document.getElementById('seconds-input').value = 10
 
-    setMinutes()
-    setSeconds()
+    setMinAndSec()
 }
 
 const set1Min = () => {
@@ -70,8 +80,7 @@ const set1Min = () => {
     document.getElementById('minutes-input').value = 1
     document.getElementById('seconds-input').value = 0
 
-    setMinutes()
-    setSeconds()
+    setMinAndSec()
 }
 
 const set20Sec = () => {
@@ -81,8 +90,7 @@ const set20Sec = () => {
     document.getElementById('minutes-input').value = 0
     document.getElementById('seconds-input').value = 20
 
-    setMinutes()
-    setSeconds()
+    setMinAndSec()
 }
 
 set10Min10SecBtn.addEventListener('click', set10Min10Sec)
@@ -144,7 +152,7 @@ function updateCountdown() {
         time--
         // console.log(time);
     } else {
-        
+
         if (timerId) {
             console.log('timer has ended. clearing interval', timerId)
             clearInterval(timerId)
