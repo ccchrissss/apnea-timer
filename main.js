@@ -103,21 +103,21 @@ set20SecBtn.addEventListener('click', set20Sec)
 
 let timerId;
 
-const startCount = () => {
-    console.log('startTimerBtn clicked, startCount function executed')
+const startTimer = () => {
+    console.log('startTimerBtn clicked, startTimer function executed')
     timerId = setInterval(updateCountdown, 1000)
     console.log('timerId', timerId)
 
 };
 
-const stopCount = () => {
+const stopTimer = () => {
     clearInterval(timerId);
     // release our intervalID from the variable
     timerId = null;
 }
 
 const clearTimer = () => {
-    stopCount
+    stopTimer
 
     // countdownEl.innerHTML = '0:00'
     minutes = 0
@@ -137,8 +137,8 @@ const resetTimer = () => {
     setSeconds()
 }
 
-startTimerBtn.addEventListener('click', startCount);
-stopTimerBtn.addEventListener('click', stopCount)
+startTimerBtn.addEventListener('click', startTimer);
+stopTimerBtn.addEventListener('click', stopTimer)
 clearTimerBtn.addEventListener('click', clearTimer)
 resetTimerBtn.addEventListener('click', resetTimer)
 
