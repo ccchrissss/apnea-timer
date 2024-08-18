@@ -99,6 +99,7 @@ const startCount = () => {
     console.log('startTimerBtn clicked, startCount function executed')
     timerId = setInterval(updateCountdown, 1000)
     console.log('timerId', timerId)
+
 };
 
 const stopCount = () => {
@@ -143,8 +144,12 @@ function updateCountdown() {
         time--
         // console.log(time);
     } else {
-        console.log('timer has ended. clearing interval', timerId)
-        clearInterval(timerId)
+        
+        if (timerId) {
+            console.log('timer has ended. clearing interval', timerId)
+            clearInterval(timerId)
+        }
+
     };
 
     // console.log('counting')
