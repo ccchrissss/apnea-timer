@@ -17,8 +17,9 @@ const set20SecBtn = document.getElementById('set-20-sec')
 
 
 const countdownEl = document.getElementById('countdown');
-const singleBeep = new Audio('./beep-07a.mp3');
-const tripleBeep = new Audio('./triple-beep-07a.mp3')
+const singleBeep = new Audio('./sounds/beep-07a.mp3');
+const doubleBeep = new Audio('./sounds/double-beep-07a.mp3')
+const tripleBeep = new Audio('./sounds/triple-beep-07a.mp3')
 
 
 setTime = () => {
@@ -115,6 +116,7 @@ const startTimer = () => {
 
         console.log('startTimerBtn clicked, startTimer function executed')
         timerId = setInterval(updateCountdown, 1000)
+        doubleBeep.play()
         console.log('timerId', timerId)
 
         timerStatus = 'on'
