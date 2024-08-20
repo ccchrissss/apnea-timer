@@ -5,6 +5,12 @@ body {
     margin: 0;
 }
 
+h1 {
+    font-size: 2.5rem;
+    font-family: roboto;
+    margin: 1rem;
+}
+
 #whole-thing {
     width: 50%;
 }
