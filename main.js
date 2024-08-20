@@ -116,7 +116,11 @@ const startTimer = () => {
 
         console.log('startTimerBtn clicked, startTimer function executed')
         timerId = setInterval(updateCountdown, 1000)
-        doubleBeep.play()
+        
+        if (time > 0) {
+            doubleBeep.play()
+        }
+        
         console.log('timerId', timerId)
 
         timerStatus = 'on'
