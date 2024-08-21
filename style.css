@@ -22,7 +22,7 @@ p {
 p#countdown {
     background-color: gray;
     display: inline-flex;
-    width: 11rem;
+    width: 13rem;
     height: 5rem;
     font-size: 5rem;
     font-family: roboto;
